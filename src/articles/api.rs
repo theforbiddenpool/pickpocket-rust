@@ -4,7 +4,7 @@ use crate::configuration::Configuration;
 use crate::logger;
 use serde_json::json;
 
-static ACTION_DELETE: &str = "delete";
+static ACTION_ARCHIVE: &str = "archive";
 static STATE_UNREAD: &str = "unread";
 
 pub struct API {
@@ -51,7 +51,7 @@ impl API {
         }
     }
 
-    pub fn delete(&self, articles: Vec<&Article>) {
+    pub fn archive(&self, articles: Vec<&Article>) {
         let token_handler = TokenHandler::new();
         let (consumer_key, pocket_send_url, access_token) = (
             &self.configuration.consumer_key,
@@ -63,7 +63,7 @@ impl API {
             .into_iter()
             .map(|article| {
                 json!({
-                    "action": ACTION_DELETE,
+                    "action": ACTION_ARCHIVE,
                     "item_id": article.id,
                 })
             })
