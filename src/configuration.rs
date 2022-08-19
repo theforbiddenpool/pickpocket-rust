@@ -29,7 +29,7 @@ impl Default for Configuration {
             oauth_token_file: Self::home_folder().join("oauth_token"),
             // Pocket
             consumer_key: env::var("POCKET_CONSUMER_KEY")
-                .unwrap_or("58132-f824d5fbf935681e22e86a3c".to_owned()),
+                .unwrap_or("101884-9d0090044d22fd232f0fcbd".to_owned()),
             pocket_homepage: "https://getpocket.com".to_owned(),
             pocket_oauth_authorize_url: "https://getpocket.com/v3/oauth/authorize".to_owned(),
             pocket_oauth_request_url: "https://getpocket.com/v3/oauth/request".to_owned(),
